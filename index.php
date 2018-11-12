@@ -1,11 +1,12 @@
 <?php
 
-require 'function.php';
+//we can assign the require to $query because we return the new QueryBuilder in the bootstrap.php
+$query = require 'bootstrap.php';
 require 'Task.php';
-require 'database/Connection.php';
 
-$pdo = Connection::make();
 
-$tasks = fetchAllTasks($pdo);
+$tasks = $query->selectAll('todos');
+
+
 
 require 'index.view.php';
