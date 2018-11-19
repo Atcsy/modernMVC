@@ -2,6 +2,7 @@
 
 require 'database/Connection.php';
 require 'database/QueryBuilder.php';
+$config = require 'config.php';
 
 //make a new connection to the database
 //$pdo = Connection::make();
@@ -10,4 +11,4 @@ require 'database/QueryBuilder.php';
 
 //you can simply write this down
 
-return new QueryBuilder(Connection::make());
+return new QueryBuilder(Connection::make($config['database']));
